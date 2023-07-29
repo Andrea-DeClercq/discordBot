@@ -1,11 +1,11 @@
-const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js')
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
     cooldown: 5,
     data: new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Pong Dev'),
+        .setName('ghostlist')
+        .setDescription('Get the ghost list available with the bot'),
     async execute(interaction) {
         const deleteButton = new ButtonBuilder()
             .setCustomId('delete')
@@ -16,7 +16,9 @@ module.exports = {
             .addComponents(deleteButton)
 
         const response = await interaction.reply({
-            content: `Pong !`,
+            content:'**Here get the ghost list availaible with the bot**\n\
+            >>> Sample\
+            ',
             components: [row]
         });
 
@@ -35,7 +37,7 @@ module.exports = {
             await interaction.editReply({
                 content: 'Confirmation not received within 1 minute, cancelling', components: []
             });
-            await wait(5000);
+            await wait(15000);
             await interaction.deleteReply();
         }
     }
