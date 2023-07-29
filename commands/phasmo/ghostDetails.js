@@ -73,7 +73,7 @@ module.exports = {
 
         } catch (e) {
             await interaction.editReply({
-                content: 'Confirmation not received within 1 minute, cancelling', components: []
+                content: 'Auto-deletion reply...', components: []
             });
             await wait(5000);
             await interaction.deleteReply();
