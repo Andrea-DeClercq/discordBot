@@ -17,7 +17,16 @@ module.exports = {
 
         const response = await interaction.reply({
             content:'**Here get the ghost list availaible with the bot**\n\
-            >>> Sample\
+            ```\n\
+            Banshee         Demon           Deogen\n\
+            Goryo           Hantu           Jinn\n\
+            Mare            Moroi           Myling\n\
+            Obake           Oni             Onryo\n\
+            Phantom         Poltergeist     Raiju\n\
+            Revenant        Shade           Spirit\n\
+            Thaye           The Mimic       The Twins\n\
+            Wraith          Yokai           Yurei\
+            ```\
             ',
             components: [row]
         });
@@ -35,9 +44,9 @@ module.exports = {
 
         } catch (e) {
             await interaction.editReply({
-                content: 'Confirmation not received within 1 minute, cancelling', components: []
+                content: 'Auto-deleting message...', components: []
             });
-            await wait(15000);
+            await wait(5000);
             await interaction.deleteReply();
         }
     }
